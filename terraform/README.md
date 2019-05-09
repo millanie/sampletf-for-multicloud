@@ -15,3 +15,7 @@
   
   ![output](images/awsconfigure.png)
 
+
+### prerequisite for azure (TODO)
+
+### prerequisite for gcp (TODO)
