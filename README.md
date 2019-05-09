@@ -48,17 +48,17 @@ The available downloads for the latest version of Terraform are [here](https://w
     >     state              Advanced state management
 
 
-* Basic commands
-  * run on each working directory for initializing and bringing it up to date with changes in the configurations.
-    > $ terraform init
+### Basic commands
+* run on each working directory for initializing and bringing it up to date with changes in the configurations.
+  > $ terraform init
 
-  * simulate the terraform scripts before applying
-    > $ terraform plan
+* simulate the terraform scripts before applying
+  > $ terraform plan
 
-  * apply the terraform scripts
-    > $ terraform apply
+* apply the terraform scripts
+  > $ terraform apply
 
-  * destroy all the resources created by the terraform scripts
-    > $ terraform destroy
+* destroy all the resources created by the terraform scripts
+  > $ terraform destroy
 
 
