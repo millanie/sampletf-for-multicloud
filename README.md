@@ -5,9 +5,9 @@
 The available downloads for the latest version of Terraform are [here](https://www.terraform.io/downloads.html). 
 
 * Sample on CentOS
-> $ wget {package url fit on your os platform}
-> $ unzip terraform_{version}_linux_amd64.zip
-> $ sudo mv terraform /usr/local/bin
+> $ wget {package url fit on your os platform}  
+> $ unzip terraform_{version}_linux_amd64.zip  
+> $ sudo mv terraform /usr/local/bin  
 
 * Test
 > $ terraform
