@@ -12,5 +12,6 @@
 * configuration of aws profile
   During this process, you need IAM access key and secret key which have the proper permission to provision. 
   > $ aws configure --profile {profile name}  
+  
   ![output](images/awsconfigure.png)
 
