@@ -3,7 +3,7 @@ provider "aws" {
   region = "${var.region}"
   profile = "${var.profile}"
   
-  version = "~> 1.60"
+#  version = "~> 1.60"
 }
 
 ####### VPC
