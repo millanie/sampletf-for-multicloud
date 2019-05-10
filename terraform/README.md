@@ -33,9 +33,14 @@
   > $ az account list   
   > $ az account set --subscription="${subscriptionid}>" 
   
-  > Create service principal to run terraform. default RBAC role for the service principal is Contributor.  
+  Create service principal to run terraform. default RBAC role for the service principal is Contributor.  
   > Note the output : appId, password, sp_name, tenant  
   > $ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionid}"  
 
+  Set environment variables
+  > $ export ARM_SUBSCRIPTION_ID=  
+  > $ export ARM_CLIENT_ID=  
+  > $ export ARM_CLIENT_SECRET=  
+  > $ export ARM_TENANT_ID=  
 
 ### prerequisite for gcp (TODO)
