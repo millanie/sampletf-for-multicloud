@@ -31,14 +31,11 @@
 * azure configuration
   > $ az login  
   > $ az account list   
-  > $ az account set --subscription="<subscriptionid>" 
+  > $ az account set --subscription="${subscriptionid}>" 
   
   > Create service principal to run terraform. default RBAC role for the service principal is Contributor.  
   > Note the output : appId, password, sp_name, tenant 
-  > $ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
-  
- 
-
+  > $ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionid}"
 
 
 ### prerequisite for gcp (TODO)
