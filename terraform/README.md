@@ -16,7 +16,7 @@
   ![output](images/awsconfigure.png)
 
 
-### prerequisite for azure (TODO)
+### prerequisite for azure
 
 * azure cli installation
   If you want to use any different method for authenticating to Azure, check on [here](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
