@@ -10,7 +10,7 @@ vpc_cidr_block = "10.200.0.0/16"
 vpc_enable_dns_hostnames = true
 pub_subnet_cidr_list = ["10.200.0.0/24", "10.200.1.0/24"]
 prv_subnet_cidr_list = ["10.200.10.0/24", "10.200.11.0/24"]
-az_list = ["ap-southeast-2c", "ap-southeast-2b"]
+az_list = ["ap-northeast-2c", "ap-northeast-2a"]
 
 # EC2
 ec2_type = "t2.micro"
