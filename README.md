@@ -1,4 +1,4 @@
-# sampletf-for-study
+# sampletf-for-multicloud
 
 ### Installation
 
