@@ -11,11 +11,6 @@ provider "aws" {
 resource "aws_vpc" "simpleservice" {
     cidr_block           = "${var.vpc_cidr_block}"
     enable_dns_hostnames = "${var.vpc_enable_dns_hostnames}"
-
-    tags {
-        "Name"  = "simpleservice"
-        "Stage" = "${var.tag_stage}"
-    }
 }
 
 # public subnet
@@ -25,11 +20,6 @@ resource "aws_subnet" "simpleservice-public" {
     vpc_id = "${aws_vpc.simpleservice.id}"
     cidr_block = "${element(var.pub_subnet_cidr_list, count.index)}"
     availability_zone = "${element(var.az_list, count.index)}"
-
-    tags {
-        "Name"  = "simpleservice-public"
-        "Stage" = "${var.tag_stage}"
-    }
 }
 
 # private subnet
@@ -40,20 +30,12 @@ resource "aws_subnet" "simpleservice-private" {
     cidr_block = "${element(var.prv_subnet_cidr_list, count.index)}"
     availability_zone = "${element(var.az_list, count.index)}"
 
-    tags {
-        "Name"  = "simpleservice-private"
-        "Stage" = "${var.tag_stage}"
-    }
 }
 
 # internet gateway
 resource "aws_internet_gateway" "igw-simpleservice" {
     vpc_id = "${aws_vpc.simpleservice.id}"
 
-    tags {
-        "Name"  = "igw-simpleservice"
-        "Stage" = "${var.tag_stage}"
-    }
 }
 
 # routing table
@@ -65,10 +47,6 @@ resource "aws_route_table" "public" {
         gateway_id = "${aws_internet_gateway.igw-simpleservice.id}"
     }
 
-    tags {
-        "Name"  = "rtb-public"
-        "Stage" = "${var.tag_stage}"
-    }
 }
 
 resource "aws_route_table_association" "rtb-simpleservice-public" {
@@ -94,9 +72,6 @@ resource "aws_instance" "simpleservice" {
       volume_size          = 30 
     } 
     
-    tags {
-        "Stage" = "${var.tag_stage}"
-    }
 }
 
 # security group for ec2
@@ -121,9 +96,6 @@ resource "aws_security_group" "simpleservice" {
       cidr_blocks   = ["0.0.0.0/0"]
     }
 
-    tags {
-        "Stage" = "${var.tag_stage}"
-    }
 }
 
 ###### ALB
