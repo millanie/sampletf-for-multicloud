@@ -74,6 +74,19 @@ resource "aws_instance" "simpleservice" {
     
 }
 
+
+# EIP
+resource "aws_eip" "simpleservice" {
+    count = 1
+
+    vpc = true
+
+    instance                  = "${element(aws_instance.simpleservice.*.id, count.index)}"
+    associate_with_private_ip = "${element(aws_instance.simpleservice.*.private_ip, count.index)}"
+
+}
+
+
 # security group for ec2
 resource "aws_security_group" "simpleservice" {
     name            = "simpleservice"
@@ -93,6 +106,14 @@ resource "aws_security_group" "simpleservice" {
       from_port     = "${var.http_port}"
       to_port       = "${var.http_port}"
       protocol      = "tcp"
+      cidr_blocks   = ["0.0.0.0/0"]
+    }
+
+    ## for outbound
+    egress {
+      from_port     = 0
+      to_port       = 0
+      protocol      = "-1"
       cidr_blocks   = ["0.0.0.0/0"]
     }
 
