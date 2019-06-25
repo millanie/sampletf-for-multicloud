@@ -43,4 +43,17 @@
   > $ export ARM_CLIENT_SECRET=  
   > $ export ARM_TENANT_ID=  
 
-### prerequisite for gcp (TODO)
+### prerequisite for gcp 
+* google cloud cli installation
+  refer [here](https://cloud.google.com/sdk/) 
+
+* gcp configuration
+  set up the account, project and default config. 
+  > $ gcloud init 
+
+  check the account and project.
+  > $ gcloud auth list
+  > $ gcloud config list project 
+
+  create service account with "Editor" role and save key file naming as "account.json"
+
