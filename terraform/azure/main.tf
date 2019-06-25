@@ -6,10 +6,6 @@ provider "azurerm" {
 resource "azurerm_resource_group" "myterraformgroup" {
   name     = "${var.rgname}"
   location = "${var.location}"
-
-  tags {
-      environment = "${var.tag_stage}"
-  }
 }
 
 ### vnet 
@@ -18,10 +14,6 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
   address_space       = ["${var.vnet_cidr_block}"]
   location            = "${azurerm_resource_group.myterraformgroup.location}"
   resource_group_name = "${var.rgname}"
-
-  tags {
-      environment = "${var.tag_stage}"
-  }
 }
 
 ### subnet
@@ -42,9 +34,6 @@ resource "azurerm_public_ip" "myterraformpublicip" {
   resource_group_name = "${var.rgname}"
   allocation_method   = "Static"
 
-  tags {
-      environment = "${var.tag_stage}"
-  }
 }
 
 ### nsg
@@ -65,10 +54,6 @@ resource "azurerm_network_security_group" "myterraformnsg" {
       source_address_prefix      = "${var.jumpbox_ip}"
       destination_address_prefix = "*"
   }
-
-  tags {
-      environment = "${var.tag_stage}"
-  }
 }
 
 ### network interface
@@ -80,14 +65,11 @@ resource "azurerm_network_interface" "myterraformnic" {
 
   ip_configuration {
       name                          = "myNicConfiguration"
-      subnet_id                     = "${azurerm_subnet.myterraformsubnet-public.id}"
+      subnet_id                     = "${azurerm_subnet.myterraformsubnet-public.0.id}"
       private_ip_address_allocation = "Dynamic"
       public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
   }
 
-  tags {
-      environment = "${var.tag_stage}"
-  }
 }
 
 # Create virtual machine
@@ -135,9 +117,6 @@ resource "azurerm_virtual_machine" "myterraformvm" {
       storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
   }
 
-  tags {
-      environment = "${var.tag_stage}"
-  }
 }
 
 # random text for a unique storage account name
@@ -158,7 +137,4 @@ resource "azurerm_storage_account" "mystorageaccount" {
   account_tier                = "Standard"
   account_replication_type    = "LRS"
 
-  tags {
-      environment = "${var.tag_stage}"
-  }
 }
