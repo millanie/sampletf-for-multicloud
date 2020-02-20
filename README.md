@@ -1,5 +1,10 @@
 # sampletf-for-multicloud
 
+### update plan
+* priority for azure
+  - upgrade code for terraform 0.12
+  - apply key vault
+
 ### Installation
 
 The available downloads for the latest version of Terraform are [here](https://www.terraform.io/downloads.html). 
