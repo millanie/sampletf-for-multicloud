@@ -1,9 +1,9 @@
 # sampletf-for-multicloud
 
 ### update plan
-* priority for azure
-  -[ ] upgrade code for terraform 0.12
-  -[ ] apply key vault
+* priority for azure    
+  - [ ] upgrade code for terraform 0.12
+  - [ ] apply key vault
 
 ### Installation
 
