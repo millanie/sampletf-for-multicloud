@@ -2,8 +2,8 @@
 
 ### update plan
 * priority for azure
-  - upgrade code for terraform 0.12
-  - apply key vault
+  -[ ] upgrade code for terraform 0.12
+  -[ ] apply key vault
 
 ### Installation
 
